@@ -1,13 +1,23 @@
+import './config/ReactotronConfig';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { NativeRouter } from 'react-router-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, persistor } from '~/store';
+
+import Routes from './routes';
 
 export default function App() {
   return (
-    <NativeRouter>
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ color: '#63c' }}>Pogchamp</Text>
-      </View>
-    </NativeRouter>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <NativeRouter>
+          <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+          <Routes />
+        </NativeRouter>
+      </PersistGate>
+    </Provider>
   );
 }
