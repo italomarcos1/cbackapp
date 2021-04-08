@@ -1,21 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Container, Label, CustomInput } from './styles';
 
-import { Container, Input } from './styles';
-
-import SearchIcon from '../../assets/icons/search-ico.svg';
-
-export default function CustomInput() {
+export default function Input({
+  label,
+  style,
+  error = false,
+  setText,
+  ...rest
+}) {
   return (
-    <Container>
-      <Input
-        autoCorrect={false}
-        autoCapitalize="none"
-        placeholder="Procure Aqui"
-        onChangeText={() => {}}
-        returnKeyType="search"
-      />
-      <SearchIcon width={24} height={24} />
+    <Container style={style} error={!!error}>
+      <Label error={!!error}>{label}</Label>
+      <CustomInput onChangeText={text => setText(text)} {...rest} />
     </Container>
   );
 }

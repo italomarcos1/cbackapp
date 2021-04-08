@@ -34,7 +34,7 @@ import InstagramIcon from '~/assets/icons/instagram-icon.svg';
 import StarFull from '~/assets/icons/star-full.svg';
 import StarEmpty from '~/assets/icons/star-empty.svg';
 
-export default function CBack() {
+export default function Favorites() {
   const [credits, setCredits] = useState([]);
 
   const { pathname } = useLocation();

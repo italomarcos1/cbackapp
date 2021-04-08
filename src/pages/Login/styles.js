@@ -5,25 +5,11 @@ export const Container = styled.ScrollView`
   background-color: #fff;
 `;
 
-export const CreditText = styled.Text`
-  font-size: 18px;
-  line-height: 22px;
-  color: #181818;
-  text-align: center;
-  margin-top: 17px;
-`;
-
-export const MadeByContainer = styled.View`
-  height: 48px;
+export const Header = styled.View`
   width: 100%;
-  background-color: #fff;
   flex-direction: row;
-  justify-content: center;
-  padding-top: 11px;
-  margin-top: 126px;
-`;
-
-export const MadeByText = styled.Text`
-  font-size: 10px;
-  color: #868686;
+  align-items: center;
+  padding-top: 23px;
+  padding-left: 45px;
+  background-color: #fff;
 `;

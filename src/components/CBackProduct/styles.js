@@ -1,18 +1,18 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   width: 100%;
   /* height: 260px; */
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #fff;
   margin-top: 21px;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   position: relative;
 `;
 
 export const Picture = styled.Image`
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   height: 103px;
   width: 100%;
   position: relative;
@@ -57,36 +57,6 @@ export const CBackContainer = styled.View`
   align-items: center;
   margin-top: 16px;
   justify-content: space-between;
-`;
-
-export const CBack = styled.View`
-  width: 139px;
-  height: 49px;
-  border-radius: 10px;
-  background-color: #f03f39;
-  padding-left: 12px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  justify-content: center;
-`;
-
-export const CBackPrice = styled.Text`
-  font-size: 22px;
-  line-height: 22px;
-  color: #fff;
-  font-weight: bold;
-`;
-
-export const CBackTimeLeft = styled.Text`
-  font-size: 10px;
-  line-height: 11px;
-  color: #b9d0ff;
-`;
-
-export const CBackBoldTimeLeft = styled.Text`
-  font-size: 10px;
-  color: #ffdc4b;
-  font-weight: bold;
 `;
 
 export const RatingContainer = styled.View`

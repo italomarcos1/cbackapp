@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  width: 320px;
-  height: 371px;
+  width: 100%;
+  /* height: 371px; */
   border-radius: 20px;
   background-color: #4267b2;
   padding: 20px 34px;
@@ -15,21 +15,25 @@ export const QRCode = styled.Image`
   background-color: #f90;
 `;
 
+export const Title = styled.View`
+  flex-direction: row;
+  height: 26px;
+  align-items: flex-end;
+`;
+
 export const CBackPrice = styled.Text`
-  font-size: 26px;
-  line-height: 26px;
-  color: #fff;
+  font-size: 22px;
+  line-height: 22px;
+  color: #ffdc4b;
   font-weight: bold;
 `;
 
 export const CBackTimeLeft = styled.Text`
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 19.5px;
   color: #fff;
 `;
 
-export const CBackBoldTimeLeft = styled.Text`
-  font-size: 12px;
-  color: #ffdc4b;
+export const CBackBoldTimeLeft = styled(CBackTimeLeft)`
   font-weight: bold;
 `;

@@ -1,14 +1,10 @@
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
-axios.defaults.baseURL = 'https://sandbox.amfrutas.pt/api-v2';
+axios.defaults.baseURL = 'https://sandbox.amfrutas.pt/backend';
 
 axios.interceptors.request.use(async config => {
-  const uuid = await AsyncStorage.getItem('@uuid');
-
-  if (uuid) {
-    config.headers.uuid = uuid;
-  }
+  config.headers.uuid = '8ba6b4b-4860-4e-b43a-3e644e4040a';
 
   return config;
 });

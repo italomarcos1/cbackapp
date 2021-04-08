@@ -1,17 +1,16 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { useDispatch } from 'react-redux';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import Toast from 'react-native-tiny-toast';
 
-import { Container, CreditText, MadeByContainer, MadeByText } from './styles';
+import { Container, CreditText } from './styles';
 import Button from '~/components/Button';
+import MadeByContainer from '~/components/MadeByContainer';
 
 import CBack from '~/assets/icons/cback.svg';
 import BannerHome from '~/assets/icons/banner-home.svg';
-import CbackBottomLogo from '~/assets/icons/cback-bottom.svg';
-import TgooBottomLogo from '~/assets/icons/tgoo-bottom.svg';
 
 import { signInSuccess } from '~/store/modules/auth/actions';
 
@@ -21,8 +20,12 @@ export default function Login() {
   const { push, goBack } = useHistory();
   const dispatch = useDispatch();
 
+  const [fbLoggingIn, setFbLoggingIn] = useState(false);
+
   const handleFacebookLogin = useCallback(() => {
     LoginManager.logOut();
+
+    setFbLoggingIn(true);
 
     LoginManager.logInWithPermissions(['public_profile', 'email'])
       .then(() => {
@@ -40,8 +43,8 @@ export default function Login() {
               api.defaults.headers.Authorization = `Bearer ${token}`;
               dispatch(signInSuccess(token, user));
 
-              setTimeout(function () {
-                goBack();
+              setTimeout(() => {
+                push('/companies');
               }, 100);
             })
             .catch(() => {
@@ -83,23 +86,28 @@ export default function Login() {
         text="Entrar com"
         boldText="E-mail"
         backgroundColor="#2CBDD3"
-        onPress={() => {}}
+        onPress={() => push('/login')}
       />
       <Button
         text="Entrar com"
         boldText="Facebook"
         backgroundColor="#4267B2"
         onPress={handleFacebookLogin}
+        loading={fbLoggingIn}
       />
-      <Button text="Entrar com" boldText="Google" backgroundColor="#F03F39" />
-      <Button text="Entrar com" boldText="Apple" backgroundColor="#181818" />
-      <MadeByContainer>
-        <MadeByText>
-          <CbackBottomLogo width={50} height={10} />
-          &nbsp;é um produto&nbsp;
-        </MadeByText>
-        <TgooBottomLogo width={36} height={14} />
-      </MadeByContainer>
+      <Button
+        text="Entrar com"
+        boldText="Google"
+        backgroundColor="#F03F39"
+        onPress={() => {}}
+      />
+      <Button
+        text="Entrar com"
+        boldText="Apple"
+        backgroundColor="#181818"
+        onPress={() => push('/corporation')}
+      />
+      <MadeByContainer />
     </Container>
   );
 }

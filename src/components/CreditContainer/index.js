@@ -9,7 +9,7 @@ export default function CreditContainer() {
     <Container>
       <RedArrow
         width="109.5%"
-        heigh={87}
+        height={87}
         style={{
           // flex: 1,
           position: 'absolute',

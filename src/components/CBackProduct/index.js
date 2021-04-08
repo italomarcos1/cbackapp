@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { useHistory } from 'react-router-native';
 
 import {
   Container,
@@ -12,11 +13,9 @@ import {
   RatingTitle,
   StarsContainer,
   CBackContainer,
-  CBack,
-  CBackPrice,
-  CBackTimeLeft,
-  CBackBoldTimeLeft,
 } from './styles';
+
+import CBack from '../CBack';
 
 import StarFull from '~/assets/icons/star-full.svg';
 import StarEmpty from '~/assets/icons/star-empty.svg';
@@ -27,8 +26,11 @@ import FavoriteOff from '~/assets/icons/favoritos.svg';
 export default function CBackProduct({ product }) {
   const { title, address, rating, picture } = product;
   const [isFavorite, setIsFavorite] = useState(() => rating > 3);
+
+  const { push } = useHistory();
+
   return (
-    <Container index={product}>
+    <Container index={product} onPress={() => push('/cback/product')}>
       <FavoriteButton onPress={() => setIsFavorite(!isFavorite)}>
         {isFavorite ? (
           <FavoriteOn width={46} height={46} />
@@ -41,12 +43,6 @@ export default function CBackProduct({ product }) {
         <Title>{title}</Title>
         <Description>{address}</Description>
         <CBackContainer>
-          <CBack>
-            <CBackPrice>R$ 16,42</CBackPrice>
-            <CBackTimeLeft>
-              Faltam <CBackBoldTimeLeft>29</CBackBoldTimeLeft> dias para uso
-            </CBackTimeLeft>
-          </CBack>
           <RatingContainer>
             <RatingTitle>Já é cliente</RatingTitle>
             <StarsContainer>
@@ -63,6 +59,8 @@ export default function CBackProduct({ product }) {
             </StarsContainer>
           </RatingContainer>
         </CBackContainer>
+        <CBack />
+        <CBack />
       </ProductInfo>
     </Container>
   );

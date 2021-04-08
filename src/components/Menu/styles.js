@@ -27,17 +27,3 @@ export const ButtonText = styled.Text`
   margin-top: 5px;
   font-weight: bold;
 `;
-
-export const MadeByContainer = styled.View`
-  height: 48px;
-  width: 100%;
-  background-color: #fff;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 11px;
-`;
-
-export const MadeByText = styled.Text`
-  font-size: 10px;
-  color: #868686;
-`;

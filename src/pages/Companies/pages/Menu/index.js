@@ -6,7 +6,7 @@ import { OptionsContainer, OptionsButton, OptionsText } from './styles';
 
 import Menu from '~/components/Menu';
 import Header from '~/components/MenuHeader';
-import CustomInput from '~/components/Input';
+import CustomInput from '~/components/SearchInput';
 import Product from '~/components/MenuProduct';
 import RoundButton from '~/components/RoundButton';
 import Button from '~/components/Button';

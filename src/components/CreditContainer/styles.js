@@ -6,8 +6,8 @@ export const Container = styled.ImageBackground`
   border-radius: 8px;
   padding-left: 26px;
   justify-content: center;
-  background-color: #0047b1;
-  margin-top: 32px;
+  background-color: #f03f39;
+  margin-top: 20px;
 `;
 
 export const Credit = styled.Text`

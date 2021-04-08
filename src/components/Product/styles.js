@@ -6,10 +6,10 @@ import HeaderButton from '~/components/RoundButton';
 export const Container = styled.TouchableOpacity`
   width: 100%;
   /* height: 260px; */
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #fff;
   margin-top: 21px;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   position: relative;
 `;
 
@@ -54,7 +54,7 @@ export const RatingContainer = styled.View`
   justify-content: space-between;
   height: 38px;
   width: 109px;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   margin-top: 16px;
 `;
 

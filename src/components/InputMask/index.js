@@ -1,17 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Container, Label, Input } from './styles';
 
-export default function InputMask({ label, mask, setText, style, ...rest }) {
-  const inputRef = useRef();
-
+export default function InputMask({
+  label,
+  mask,
+  style,
+  error = false,
+  setText,
+  ...rest
+}) {
   return (
-    <Container style={style}>
-      <Label>{label}</Label>
+    <Container style={style} error={!!error}>
+      <Label error={!!error}>{label}</Label>
       <Input
-        refInput={inputRef}
         onChangeText={(formatted, _) => setText(formatted)}
-        mask={`${mask}`}
+        mask={mask}
         {...rest}
       />
     </Container>
